@@ -56,9 +56,10 @@ class LoginDetailsPage extends StatelessWidget {
                         ),
                         Positioned(
                           right: 5,
+                          top: 10,
                           child:GestureDetector(
                             onTap: () {
-                              controller.logoutUser();
+                              controller.logoutUser(isDetails: true);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),

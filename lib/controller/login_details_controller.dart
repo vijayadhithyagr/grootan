@@ -40,11 +40,11 @@ class LoginDetailsController extends GetxController {
   void onInit() async {
     getLastLoginTime();
     getLoginDetails();
-    setValues();
+    initialSetValues();
     super.onInit();
   }
 
-  setValues() {
+  initialSetValues() {
     if (box.read('qrNumber') != null && box.read('qrNumber') != 0) {
 
       qrCodeNumber.value = box.read('qrNumber');
@@ -55,10 +55,12 @@ class LoginDetailsController extends GetxController {
     }
   }
 
-  logoutUser() {
+  logoutUser({bool isDetails = false}) {
     FirebaseAuth.instance.signOut();
     box.erase();
-    Get.off(() => Login());
+    Get.offAll(()=>Login());
+
+
   }
 
   getLastLoginTime() {

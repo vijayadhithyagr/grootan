@@ -98,7 +98,7 @@ class AuthController extends GetxController {
           phoneController.clear();
           otpController.clear();
           verificationCode.value = '';
-          Get.to(() => PluginPage());
+          Get.off(() => PluginPage());
           isProgress = false;
           update();
 
